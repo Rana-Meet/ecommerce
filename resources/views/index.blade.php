@@ -1,141 +1,362 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Products</title>
-    <style>
-        /* Body with background image and overlay */
-        body {
-            font-family: 'Arial', sans-serif;
-            background: url('{{ asset("images/background.jpg") }}') no-repeat center center fixed;
-            background-size: cover;
-            padding: 40px;
-            margin: 0;
-            position: relative;
-        }
+<title>Electronic  Shop</title>
 
-        /* Optional dark overlay for better readability */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.3); /* adjust opacity */
-            z-index: -1;
-        }
+<style>
 
-        h2 {
-            text-align: center;
-            margin-bottom: 40px;
-            color: #fff; /* change to white for visibility on background */
-            font-size: 32px;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
-        }
+body{
+font-family:Arial;
+margin:0;
+background:#0f172a;
+color:white;
+}
 
-        .products-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 25px;
-        }
+/* Navbar */
 
-        .product-card {
-            border-radius: 12px;
-            padding: 20px;
-            background: rgba(255,255,255,0.95); /* slightly transparent for effect */
-            width: 220px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:#111827;
+}
 
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-        }
+.logo{
+font-size:24px;
+font-weight:bold;
+}
 
-        .product-card img {
-            width: 100%;
-            height: 150px;
-            object-fit: contain;
-            margin-bottom: 15px;
-        }
+.search input{
+padding:8px;
+width:300px;
+border-radius:5px;
+border:none;
+}
 
-        .product-card h3 {
-            margin-bottom: 10px;
-            font-size: 20px;
-            color: #444;
-            min-height: 50px;
-        }
+/* Banner */
 
-        .product-card p {
-            margin-bottom: 15px;
-            font-weight: bold;
-            color: #222;
-        }
+.banner{
+width:100%;
+height:350px;
+overflow:hidden;
+position:relative;
+}
 
-        .product-card button {
-            padding: 10px 20px;
-            background: linear-gradient(135deg, #28a745, #218838);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background 0.3s;
-        }
+.slides{
+display:flex;
+width:200%;
+animation:slide 8s infinite;
+}
 
-        .product-card button:hover {
-            background: linear-gradient(135deg, #218838, #1e7e34);
-        }
+.slides img{
+width:50%;
+height:350px;
+object-fit:cover;
+}
 
-        .cart-link {
-            display: block;
-            width: 180px;
-            margin: 40px auto 0 auto;
-            text-align: center;
-            padding: 14px;
-            background: #007bff;
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            border-radius: 6px;
-            transition: background 0.3s;
-        }
+/* Banner Animation */
 
-        .cart-link:hover {
-            background: #0056b3;
-        }
+@keyframes slide{
+0%{transform:translateX(0);}
+45%{transform:translateX(0);}
+50%{transform:translateX(-50%);}
+95%{transform:translateX(-50%);}
+100%{transform:translateX(0);}
+}
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .products-container {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+/* Categories */
+
+.categories{
+display:flex;
+justify-content:center;
+gap:30px;
+padding:30px;
+}
+
+.cat{
+text-align:center;
+}
+
+.cat img{
+width:60px;
+background:#1f2937;
+padding:15px;
+border-radius:10px;
+transition:0.3s;
+}
+
+.cat img:hover{
+transform:scale(1.1);
+background:#2563eb;
+}
+
+/* Products */
+
+.products-container{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:25px;
+padding:40px;
+}
+
+.product-card{
+width:220px;
+background:white;
+color:black;
+padding:20px;
+border-radius:10px;
+text-align:center;
+box-shadow:0 4px 15px rgba(0,0,0,0.3);
+transition:0.3s;
+}
+
+.product-card:hover{
+transform:translateY(-10px);
+}
+
+.product-card img{
+width:100%;
+height:150px;
+object-fit:contain;
+}
+
+button{
+padding:10px 18px;
+background:#22c55e;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#16a34a;
+}
+
+.cart-link{
+display:block;
+width:200px;
+margin:20px auto;
+text-align:center;
+padding:12px;
+background:#3b82f6;
+color:white;
+text-decoration:none;
+border-radius:6px;
+}
+
+/* Footer */
+
+.footer{
+background:#020617;
+padding:50px 80px;
+margin-top:40px;
+}
+
+.footer-container{
+display:flex;
+flex-wrap:wrap;
+justify-content:space-between;
+gap:40px;
+}
+
+.footer-column h3{
+margin-bottom:15px;
+color:#38bdf8;
+}
+
+.footer-column ul{
+list-style:none;
+padding:0;
+}
+
+.footer-column ul li{
+margin:6px 0;
+font-size:14px;
+color:#cbd5f5;
+cursor:pointer;
+}
+
+.footer-column ul li:hover{
+color:white;
+}
+
+.newsletter input{
+padding:10px;
+border:none;
+border-radius:5px;
+width:200px;
+}
+
+.footer-bottom{
+text-align:center;
+margin-top:30px;
+font-size:14px;
+color:#94a3b8;
+}
+
+</style>
 </head>
+
 <body>
 
-<h2>Product List</h2>
+<!-- Navbar -->
+
+<div class="navbar">
+
+<div class="logo">Electronic Shop</div>
+
+<div class="search">
+<input type="text" placeholder="Search products">
+</div>
+
+<div>
+<a href="/cart" style="color:white;">Cart</a>
+</div>
+
+</div>
+
+<!-- Banner -->
+
+<div class="banner">
+
+<div class="slides">
+
+<img src="{{ asset('storage/images/banner1.jpg') }}" alt="Banner">
+
+<img src="{{ asset('storage/images/banner2.jpg') }}" alt="Banner">
+
+</div>
+
+</div>
+
+<!-- Categories -->
+
+<div class="categories">
+
+<div class="cat">
+<img src="{{ asset('storage/images/phonw.jpg') }}">
+<p>Mobiles</p>
+</div>
+
+<div class="cat">
+<img src="{{ asset('storage/images/laptop.jpg') }}">
+<p>Laptops</p>
+</div>
+
+<div class="cat">
+<img src="{{ asset('storage/images/tv.jpg') }}">
+<p>TV</p>
+</div>
+
+<div class="cat">
+<img src="{{ asset('storage/images/ac.jpg') }}">
+<p>AC</p>
+</div>
+
+<div class="cat">
+<img src="{{ asset('storage/images/watch.jpg') }}">
+<p>Smart Watch</p>
+</div>
+
+</div>
+
+<h2 style="text-align:center;">Latest Products</h2>
+
+<!-- Products -->
 
 <div class="products-container">
-    @foreach($products as $product)
-    <div class="product-card">
-        <img src="{{ asset('storage/images/' . $product->image) }}" alt="{{ $product->name }}">
-        <h3>{{ $product->name }}</h3>
-        <p>₹{{ $product->price }}</p>
-        <form action="/add-cart/{{ $product->id }}" method="POST">
-            @csrf
-            <button type="submit">Add To Cart</button>
-        </form>
-    </div>
-    @endforeach
+
+@foreach($products as $product)
+
+<div class="product-card">
+
+<img src="{{ asset('storage/images/' . $product->image) }}">
+
+<h3>{{ $product->name }}</h3>
+
+<p>₹{{ $product->price }}</p>
+
+<form action="/add-cart/{{ $product->id }}" method="POST">
+
+@csrf
+
+<button>Add To Cart</button>
+
+</form>
+
+</div>
+
+@endforeach
+
 </div>
 
 <a href="/cart" class="cart-link">View Cart</a>
+
+<!-- Footer -->
+
+<div class="footer">
+
+<div class="footer-container">
+
+<div class="footer-column">
+
+<h3>Connect with us</h3>
+
+<div class="newsletter">
+<input type="text" placeholder="Enter Email ID">
+</div>
+
+</div>
+
+<div class="footer-column">
+
+<h3>Useful Links</h3>
+
+<ul>
+<li>About Meet`s Shop</li>
+<li>Help And Support</li>
+<li>FAQs</li>
+<li>Buying Guide</li>
+<li>Return Policy</li>
+<li>B2B Orders</li>
+<li>Store Locator</li>
+<li>E-Waste</li>
+<li>Franchise Opportunity</li>
+<li>Careers</li>
+</ul>
+
+</div>
+
+<div class="footer-column">
+
+<h3>Products</h3>
+
+<ul>
+<li>Televisions</li>
+<li>Home Appliances</li>
+<li>Phones & Wearables</li>
+<li>Computers & Tablets</li>
+<li>Kitchen Appliances</li>
+<li>Audio & Video</li>
+<li>Health & Fitness</li>
+<li>Gaming</li>
+<li>Accessories</li>
+</ul>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+© Copyright 2026 Meet`s Shop. All rights reserved
+
+</div>
+
+</div>
 
 </body>
 </html>

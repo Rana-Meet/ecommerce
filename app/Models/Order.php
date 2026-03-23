@@ -13,5 +13,8 @@ class Order extends Model
         'user_id',
         'total',
         'payment_mode'
+        
     ];
+
+    
 }

@@ -84,6 +84,7 @@ tr:nth-child(even){
 
 <td>
 ₹{{ ($item->product->price ?? 0) * $item->quantity }}
+
 </td>
 
 </tr>
@@ -92,7 +93,7 @@ tr:nth-child(even){
 
 </table>
 
-<a href="/checkout" class="checkout-btn">Checkout</a>
+     <a href="/checkout" class="checkout-btn">Checkout</a>
 
 </body>
 </html>
